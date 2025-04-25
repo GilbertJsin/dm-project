@@ -1,12 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import CharacterStats from '../CharacterStats/CharacterStats';
+import Conditions from '../Conditions/Conditions';
 
 const CharSheet = () => {
   const location = useLocation();
   const character = location.state;
+  const [showConditions, setShowConditions] = useState(false);
+  const [activeConditions, setActiveConditions] = useState([]);
+
+  const handleConditionToggle = (conditionId) => {
+    setActiveConditions(prev => {
+      if (prev.includes(conditionId)) {
+        return prev.filter(id => id !== conditionId);
+      }
+      return [...prev, conditionId];
+    });
+  };
 
   return (
     <div className="char-sheet-container" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+      <CharacterStats character={character} />
+      
+      <button 
+        onClick={() => setShowConditions(true)}
+        style={{
+          backgroundColor: '#12161a',
+          color: 'white',
+          padding: '0.5rem 1rem',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          marginTop: '1rem'
+        }}
+      >
+        Manage Conditions
+      </button>
+
+      <Conditions 
+        isOpen={showConditions}
+        onClose={() => setShowConditions(false)}
+        onConditionToggle={handleConditionToggle}
+        activeConditions={activeConditions}
+      />
+      
       <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>Character Sheet</h1>
       
       <div className="char-info" style={{ 
