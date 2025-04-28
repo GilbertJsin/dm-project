@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './components/Login'
+import Login from './components/Login/Login'
 import CharCreation from './components/CharCreation/CharCreation'
 import CharSheet from './components/CharSheet/CharSheet'
 

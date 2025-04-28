@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CharacterStats from '../CharacterStats/CharacterStats';
 import Conditions from '../Conditions/Conditions';
+import AbilityScores from '../AbilityScores/AbilityScores';
+import SavingThrows from '../SavingThrows/SavingThrows';
 
 const CharSheet = () => {
   const location = useLocation();
@@ -22,6 +24,14 @@ const CharSheet = () => {
     <div className="char-sheet-container" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
       <CharacterStats character={character} />
       
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '2rem' }}>
+        <AbilityScores scores={character?.abilityScores} />
+        <SavingThrows 
+          scores={character?.abilityScores}
+          proficiencies={character?.savingThrowProficiencies} 
+        />
+      </div>
+
       <button 
         onClick={() => setShowConditions(true)}
         style={{

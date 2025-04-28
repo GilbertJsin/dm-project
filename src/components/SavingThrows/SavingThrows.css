@@ -1,0 +1,50 @@
+.saving-throws-container {
+  background-color: #1a1e24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.saving-throws-container h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.saving-throws-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.saving-throw-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.proficiency-indicator {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #666;
+  border-radius: 50%;
+}
+
+.proficiency-indicator.proficient {
+  background-color: white;
+}
+
+.save-modifier {
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-width: 2rem;
+}
+
+.save-name {
+  color: #ccc;
+  font-size: 0.9rem;
+}

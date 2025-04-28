@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CharacterStats.css';
+import Conditions from '../Conditions/Conditions';
+import AbilityScores from '../AbilityScores/AbilityScores';
+
+const capitalize = (str) => str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
 
 const CharacterStats = ({ character }) => {
+  const [showConditions, setShowConditions] = useState(false);
+  const [activeConditions, setActiveConditions] = useState([]);
+
+  const handleConditionToggle = (conditionId) => {
+    setActiveConditions(prev => {
+      if (prev.includes(conditionId)) {
+        return prev.filter(id => id !== conditionId);
+      }
+      return [...prev, conditionId];
+    });
+  };
+
   return (
     <div className="character-container">
       <button className="back-button">&#8592;</button>
       <div className="character-header">
-        <h1 className="character-name">{character?.name || 'Tester'}</h1>
-        <h2 className="character-subtitle">{character?.race || 'Dwarf'} {character?.class || 'Paladin'} {character?.level || '1'}</h2>
+        <h1 className="character-name">{capitalize(character?.name) || 'Tester'}</h1>
+        <h2 className="character-subtitle">{capitalize(character?.race) || 'Dwarf'} {capitalize(character?.class) || 'Paladin'} Level {character?.level || '1'}</h2>
       </div>
-
       <div className="stats-grid">
         <div className="stat-box armor">
           <div className="stat-value">13</div>
@@ -34,16 +49,25 @@ const CharacterStats = ({ character }) => {
 
         <div className="action-icons">
           <div className="icon">🔥</div>
-          <div className="icon">⚙️</div>
-        </div>
-
-        <div className="conditions-box">
-          <h3>CONDITIONS</h3>
-          <div className="conditions-list">
-            {/* Conditions will be mapped here */}
-          </div>
+          <div className="icon" onClick={() => setShowConditions(true)}>⚙️</div>
         </div>
       </div>
+
+      <AbilityScores scores={{
+        strength: 10,
+        dexterity: 16,
+        constitution: 13,
+        intelligence: 14,
+        wisdom: 14,
+        charisma: 8
+      }} />
+
+      <Conditions 
+        isOpen={showConditions}
+        onClose={() => setShowConditions(false)}
+        onConditionToggle={handleConditionToggle}
+        activeConditions={activeConditions}
+      />
     </div>
   );
 };
