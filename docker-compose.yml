@@ -3,9 +3,10 @@ services:
   react-app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "5173:5173"
+      - "5173:5173"  # Vite dev server
+      - "6006:6006"  # Storybook port
     volumes:
       - .:/app
       - /app/node_modules
