@@ -4,6 +4,7 @@ import CharacterStats from '../CharacterStats/CharacterStats';
 import Conditions from '../Conditions/Conditions';
 import AbilityScores from '../AbilityScores/AbilityScores';
 import SavingThrows from '../SavingThrows/SavingThrows';
+import './CharSheet.css';
 
 const CharSheet = () => {
   const location = useLocation();
@@ -21,10 +22,10 @@ const CharSheet = () => {
   };
 
   return (
-    <div className="char-sheet-container" style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+    <div className="char-sheet-container">
       <CharacterStats character={character} />
       
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '2rem' }}>
+      <div className="ability-scores-grid">
         <AbilityScores scores={character?.abilityScores} />
         <SavingThrows 
           scores={character?.abilityScores}
@@ -34,15 +35,7 @@ const CharSheet = () => {
 
       <button 
         onClick={() => setShowConditions(true)}
-        style={{
-          backgroundColor: '#12161a',
-          color: 'white',
-          padding: '0.5rem 1rem',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          marginTop: '1rem'
-        }}
+        className="manage-conditions-button"
       >
         Manage Conditions
       </button>
@@ -54,40 +47,25 @@ const CharSheet = () => {
         activeConditions={activeConditions}
       />
       
-      <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>Character Sheet</h1>
+      <h1 className="char-sheet-title">Character Sheet</h1>
       
-      <div className="char-info" style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(2, 1fr)', 
-        gap: '2rem',
-        backgroundColor: '#f5f5f5',
-        padding: '2rem',
-        borderRadius: '8px',
-        marginBottom: '2rem'
-      }}>
+      <div className="char-info">
         <div className="info-section">
-          <h3 style={{ color: '#2c3e50', marginBottom: '1rem' }}>Class</h3>
-          <p style={{ fontSize: '1.2rem', color: '#000000' }}>{character?.class}</p>
+          <h3>Class</h3>
+          <p>{character?.class}</p>
           
-          <h3 style={{ color: '#2c3e50', marginBottom: '1rem', marginTop: '2rem' }}>Race</h3>
-          <p style={{ fontSize: '1.2rem', color: '#000000' }}>{character?.race}</p>
+          <h3>Race</h3>
+          <p>{character?.race}</p>
         </div>
         
         <div className="info-section">
-          <h3 style={{ color: '#2c3e50', marginBottom: '1rem' }}>Background</h3>
-          <p style={{ fontSize: '1.2rem', color: '#000000' }}>{character?.background}</p>
+          <h3>Background</h3>
+          <p>{character?.background}</p>
           
-          <h3 style={{ color: '#2c3e50', marginBottom: '1rem', marginTop: '2rem' }}>Equipment</h3>
-          <ul style={{ listStyle: 'none', padding: 0 }}>
+          <h3>Equipment</h3>
+          <ul className="equipment-list">
             {character?.equipment?.map((item, index) => (
-              <li key={index} style={{ 
-                marginBottom: '0.5rem',
-                padding: '0.5rem',
-                backgroundColor: 'white',
-                borderRadius: '4px',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                color: '#000000'
-              }}>
+              <li key={index} className="equipment-item">
                 {item}
               </li>
             ))}

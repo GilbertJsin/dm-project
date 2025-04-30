@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import './CharacterStats.css';
 import Conditions from '../Conditions/Conditions';
 import AbilityScores from '../AbilityScores/AbilityScores';
@@ -6,17 +6,17 @@ import AbilityScores from '../AbilityScores/AbilityScores';
 const capitalize = (str) => str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
 
 const CharacterStats = ({ character }) => {
-  const [showConditions, setShowConditions] = useState(false);
-  const [activeConditions, setActiveConditions] = useState([]);
+  // const [showConditions, setShowConditions] = useState(false);
+  // const [activeConditions, setActiveConditions] = useState([]);
 
-  const handleConditionToggle = (conditionId) => {
-    setActiveConditions(prev => {
-      if (prev.includes(conditionId)) {
-        return prev.filter(id => id !== conditionId);
-      }
-      return [...prev, conditionId];
-    });
-  };
+  // const handleConditionToggle = (conditionId) => {
+  //   setActiveConditions(prev => {
+  //     if (prev.includes(conditionId)) {
+  //       return prev.filter(id => id !== conditionId);
+  //     }
+  //     return [...prev, conditionId];
+  //   });
+  // };
 
   return (
     <div className="character-container">
@@ -49,25 +49,25 @@ const CharacterStats = ({ character }) => {
 
         <div className="action-icons">
           <div className="icon">🔥</div>
-          <div className="icon" onClick={() => setShowConditions(true)}>⚙️</div>
+          {/* <div className="icon" onClick={() => setShowConditions(true)}>⚙️</div> */}
         </div>
       </div>
 
-      <AbilityScores scores={{
+      {/* <AbilityScores scores={{
         strength: 10,
         dexterity: 16,
         constitution: 13,
         intelligence: 14,
         wisdom: 14,
         charisma: 8
-      }} />
+      }} /> */}
 
-      <Conditions 
+      {/* <Conditions 
         isOpen={showConditions}
         onClose={() => setShowConditions(false)}
         onConditionToggle={handleConditionToggle}
         activeConditions={activeConditions}
-      />
+      /> */}
     </div>
   );
 };
