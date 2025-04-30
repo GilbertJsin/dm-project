@@ -1,7 +1,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './components/Login'
-import CharCreation from './components/CharCreation'
+import Login from './components/Login/Login'
+import CharCreation from './components/CharCreation/CharCreation'
+import CharSheet from './components/CharSheet/CharSheet'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/char-creation" element={<CharCreation />} />
+        <Route path="/char-sheet" element={<CharSheet />} />
       </Routes>
     </BrowserRouter>
   )
