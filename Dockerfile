@@ -16,12 +16,15 @@ COPY . .
 # Expose both Vite and Storybook ports
 EXPOSE 5173 6006
 
-# Fix potential Windows line endings and make script executable
-RUN cat start.sh | tr -d '\r' > start.sh.tmp && mv start.sh.tmp start.sh
-RUN chmod +x start.sh
+# Use direct command instead of script file
+CMD ["sh", "-c", "export BROWSER=none && npm run storybook -- --port 6006 --host 0.0.0.0 --no-open & npm run dev -- --host 0.0.0.0 && wait"]
 
-# Use the startup script
-CMD ["./start.sh"]
+# # Commented out previous approach that was failing
+# # Fix potential Windows line endings and make script executable
+# # RUN cat start.sh | tr -d '\r' > start.sh.tmp && mv start.sh.tmp start.sh
+# # RUN chmod +x start.sh
+# # Use the startup script
+# # CMD ["./start.sh"]
 
 
 # # Build stage
