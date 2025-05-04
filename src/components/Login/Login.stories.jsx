@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import Login from './Login';  // Fix the import path to be relative to this file
 
 export default {
@@ -10,10 +10,10 @@ export default {
   tags: ['autodocs'],
   // Wrap all stories in BrowserRouter
   decorators: [
-    (story) => (
-      <BrowserRouter>
-        {story()}
-      </BrowserRouter>
+    (StoryComponent) => (
+      <MemoryRouter>
+        {StoryComponent()}
+      </MemoryRouter>
     ),
   ],
 };

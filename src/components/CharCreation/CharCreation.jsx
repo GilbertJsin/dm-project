@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './CharCreation.css';
 
 const CharCreation = () => {
   const navigate = useNavigate();
