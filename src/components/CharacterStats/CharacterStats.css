@@ -1,7 +1,7 @@
 .character-container {
   background-color: #1a1f24;
   color: white;
-  padding: 20px;
+  /* padding: 15px; */
   position: relative;
 }
 
@@ -18,51 +18,54 @@
 
 .character-header {
   text-align: center;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .character-name {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin: 0;
   color: white;
 }
 
 .character-subtitle {
   color: #8b95a1;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   margin: 0.5rem 0;
   font-weight: normal;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(5, 1fr); */
+  grid-template-columns: 1fr 1fr 3fr 1fr 1fr; 
   gap: 1rem;
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 .stat-box {
   background-color: #12161a;
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 50%;
+  padding: 0.75rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   aspect-ratio: 1;
+  width: 50px; 
+  height: 50px;
 }
 
 .stat-value {
-  font-size: 2.5rem;
+  font-size: 1rem;
   font-weight: bold;
   line-height: 1;
 }
 
 .stat-label {
   color: #8b95a1;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   margin-top: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -76,7 +79,7 @@
 
 .portrait-inner {
   background-color: #2a3138;
-  border-radius: 50%;
+  border-radius: 50%;   /* This how to make a circle Icon */
   width: 100%;
   height: 100%;
   display: flex;
@@ -127,4 +130,12 @@
   margin: 0 0 0.5rem 0;
   color: white;
   font-size: 1rem;
+}
+
+.character-header {
+  text-align: center;
+  /* Make sure it's centered in its larger space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
