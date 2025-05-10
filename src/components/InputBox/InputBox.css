@@ -1,8 +1,14 @@
-.input-container {
+/* .input-container {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-top: 16px;
+} */
+
+.input-container {
+    width: auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .input-box {
