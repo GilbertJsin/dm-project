@@ -9,7 +9,7 @@ const TextDisplay = ({ text, title }) => {
       textBoxRef.current.scrollTop = textBoxRef.current.scrollHeight;
     }
   }, [text]); 
-  
+
   return (
     <div className="text-display-container">
       <div className="text-display-content">
