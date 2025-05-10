@@ -83,62 +83,68 @@ const CharCreation = () => {
       <form className="char-creation-form" onSubmit={handleSubmit}>
         <div className="form-section">
           <h3>Choose Your Class</h3>
-          {characterClasses.map((charClass) => (
-            <div key={charClass.id} className="radio-option">
-              <input
-                type="radio"
-                id={charClass.id}
-                name="characterClass"
-                value={charClass.id}
-                checked={selectedClass === charClass.id}
-                onChange={handleClassChange}
-              />
-              <label htmlFor={charClass.id}>
-                <strong>{charClass.name}</strong>
-                <p>{charClass.description}</p>
-              </label>
-            </div>
-          ))}
+          <div className="options-grid">
+            {characterClasses.map((charClass) => (
+              <div key={charClass.id} className={`radio-option ${selectedClass === charClass.id ? 'selected' : ''}`}>
+                <input
+                  type="radio"
+                  id={charClass.id}
+                  name="characterClass"
+                  value={charClass.id}
+                  checked={selectedClass === charClass.id}
+                  onChange={handleClassChange}
+                />
+                <label htmlFor={charClass.id}>
+                  <strong>{charClass.name}</strong>
+                  <p>{charClass.description}</p>
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="form-section">
           <h3>Choose Your Background</h3>
-          {backgrounds.map((background) => (
-            <div key={background.id} className="radio-option">
-              <input
-                type="radio"
-                id={background.id}
-                name="characterBackground"
-                value={background.id}
-                checked={selectedBackground === background.id}
-                onChange={handleBackgroundChange}
-              />
-              <label htmlFor={background.id}>
-                <strong>{background.name}</strong>
-                <p>{background.description}</p>
-              </label>
-            </div>
-          ))}
+          <div className="options-grid">
+            {backgrounds.map((background) => (
+              <div key={background.id} className={`radio-option ${selectedBackground === background.id ? 'selected' : ''}`}>
+                <input
+                  type="radio"
+                  id={background.id}
+                  name="characterBackground"
+                  value={background.id}
+                  checked={selectedBackground === background.id}
+                  onChange={handleBackgroundChange}
+                />
+                <label htmlFor={background.id}>
+                  <strong>{background.name}</strong>
+                  <p>{background.description}</p>
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="form-section">
           <h3>Choose Your Race</h3>
-          {races.map((race) => (
-            <div key={race.id} className="radio-option">
-              <input
-                type="radio"
-                id={race.id}
-                name="characterRace"
-                value={race.id}
-                checked={selectedRace === race.id}
-                onChange={handleRaceChange}
-              />
-              <label htmlFor={race.id}>
-                <strong>{race.name}</strong>
-                <p>{race.description}</p>
-              </label>
-            </div>
-          ))}
+          <div className="options-grid">
+            {races.map((race) => (
+              <div key={race.id} className={`radio-option ${selectedRace === race.id ? 'selected' : ''}`}>
+                <input
+                  type="radio"
+                  id={race.id}
+                  name="characterRace"
+                  value={race.id}
+                  checked={selectedRace === race.id}
+                  onChange={handleRaceChange}
+                />
+                <label htmlFor={race.id}>
+                  <strong>{race.name}</strong>
+                  <p>{race.description}</p>
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="form-section">
@@ -166,15 +172,7 @@ const CharCreation = () => {
         <div className="form-section" style={{ marginTop: '2rem', textAlign: 'center' }}>
           <button 
             type="submit"
-            style={{
-              padding: '1rem 2rem',
-              fontSize: '1.1rem',
-              backgroundColor: '#646cff',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer'
-            }}
+            className="submit-button"
           >
             Create Character
           </button>

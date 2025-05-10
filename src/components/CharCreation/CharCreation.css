@@ -1,22 +1,36 @@
 .char-creation-container {
   max-width: 800px;
+  min-width: 475px;
   margin: 0 auto;
   padding: 2rem;
-  height: 100%;
-  overflow-y: auto; /* Add scroll capability */
+  position: relative;
+  top: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.char-creation-container h2 {
+  margin-top: 0;
+  padding-top: 1rem;
 }
 
 .char-creation-form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-bottom: 2rem; 
+  padding-bottom: 2rem;
+  width: 100%;
 }
 
 .form-section {
   background-color: #1a1f24;
   padding: 1.5rem;
   border-radius: 8px;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: block;
 }
 
 .form-section h3 {
@@ -25,11 +39,37 @@
   margin-bottom: 1rem;
 }
 
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
 .radio-option {
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: #12161a;
   border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.radio-option:hover {
+  transform: translateY(-2px);
+  background-color: #1e252c;
+}
+
+.radio-option.selected {
+  border-color: #646cff;
+  background-color: #1e252c;
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+  margin-right: 0.5rem;
+  cursor: pointer;
 }
 
 .radio-option label {

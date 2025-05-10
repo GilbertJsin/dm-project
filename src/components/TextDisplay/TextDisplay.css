@@ -21,9 +21,11 @@
   background-color: #12161a;
   border-radius: 8px;
   padding: 1rem;
-  min-height: 150px;
-  max-height: 400px;
+  /* min-height: 150px;
+  max-height: 400px; */
+  height: 300px;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .text-display-text {
